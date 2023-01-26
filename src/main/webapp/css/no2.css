@@ -22,6 +22,8 @@ body{
     width: 300px;
     height: 200px;
     transition: 0.5s;
+    /*transition 은 활용법이 너무 다양하다. 에펙 키프레임 타임라인을 기본으로
+    생각하되 이건 많이 써보면서 장난치면서 활용해보자*/
 }
 
 .container .card .face.face1{
@@ -31,7 +33,13 @@ body{
     justify-content: center;
     align-items: center;
     z-index: 1;
+    /* z-index 포토샵 레이어 순서생각하면 이해하기 쉽다.
+    레이어의 순서에따라 마스킹하던거 생각하자. */
     transform: translateY(100px);
+    /* transform: translateY 
+    2D 평면에서 요소를 수직으로 재배치. 노션확인 또는 
+    https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translateY
+    여기 참고하자 */
 }
 
 .container .card:hover .face.face1{
