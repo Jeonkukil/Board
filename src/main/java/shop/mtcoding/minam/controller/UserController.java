@@ -43,8 +43,9 @@ public class UserController {
                 response.addCookie(cookie);
             }
             session.setAttribute("principal", user);
-            return "redirect:/";
+            return "redirect:/board";
         }
+
     }
 
     @GetMapping("/joinForm")
@@ -65,6 +66,22 @@ public class UserController {
     @GetMapping("/logout")
     public String logout() {
         session.invalidate();
-        return "redirect:/";
+        return "redirect:/loginForm";
+    }
+
+    @GetMapping("/text")
+    public String text() {
+        return "/board/text";
+    }
+
+    @PostMapping("/text/update")
+    public String textupdate(String username, String password, String email) {
+        User user = (User) session.getAttribute("principal");
+        int result = userRepository.updateById(user.getId(), username, password, email);
+        if (result == 1) {
+            return "redirect:/board";
+        } else {
+            return "redirect:/error";
+        }
     }
 }

@@ -9,6 +9,6 @@ public interface BoardRepository {
 
     public List<Board> findAll();
 
-    public Board findById(int id);
+    public List<Board> findById(int id);
 
 }
